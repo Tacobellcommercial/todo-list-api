@@ -13,7 +13,7 @@ mongoose.connect("mongodb+srv://tacobellcommercial:"+ process.env.PASSWORD +"@cl
 
 app.use(express.json());
 app.use(cors({
-    origin: "http://localhost:3000"
+    origin: "https://react-todo-list-agyx.onrender.com"
 }))
 
 app.post("/", (req, res)=>{
