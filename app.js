@@ -41,7 +41,7 @@ app.post("/create-new-user", async (req, res)=>{
 app.post("/login", async (req, res)=>{
     const user = await User.findOne({username: req.body.username});
     if (user && await bcrypt.compare(req.body.password, user.password)){
-        const token = jwt.sign({userId: user._id, username: user.username}, secret_key, {expiresIn: "1h"});
+        const token = jwt.sign({userId: user._id, username: user.username}, process.env.SECRET_KEY, {expiresIn: "1h"});
         res.json({token: token});
     }else{
         res.status(401).send("Invalid username or password...");
