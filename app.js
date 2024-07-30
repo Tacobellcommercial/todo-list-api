@@ -83,6 +83,6 @@ app.post("/delete-todo-item", authenticateToken, async (req, res)=>{
 })
 
 
-app.listen(3001, ()=>{
+app.listen(process.env.PORT, ()=>{
     console.log("Listening on Port 3001...");
 })
