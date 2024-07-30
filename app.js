@@ -78,7 +78,6 @@ app.post("/add-todo-item", authenticateToken, async (req, res)=>{
 app.post("/delete-todo-item", authenticateToken, async (req, res)=>{
     const userId = req.user.userId;
     console.log(req.body);
-    console.log("HIIIII");
     await User.updateOne({_id: userId}, {$pull: {todoList: {id: req.body.id}}})
     res.sendStatus(201);
 })
